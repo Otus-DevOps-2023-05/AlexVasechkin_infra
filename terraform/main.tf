@@ -6,12 +6,14 @@ terraform {
   }
   required_version = ">= 0.13"
 }
+
 provider "yandex" {
-  token     = "y0_AgAAAABvG2kiAATuwQAAAADoZkNq6mCXHUzqSU2e86Jo2xMjbmbYrz8"
-  cloud_id  = "b1geen0om7ntpuqhngbu"
-  folder_id = "b1gsdeelkspet09mnfdm"
-  zone      = "ru-central1-a"
+  service_account_key_file = var.service_account_key_file
+  cloud_id = var.cloud_id
+  folder_id = var.folder_id
+  zone = var.zone
 }
+
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
 
@@ -26,18 +28,18 @@ resource "yandex_compute_instance" "app" {
   boot_disk {
     initialize_params {
       # Указать id образа созданного в предыдущем домашем задании
-      image_id = "fd8g2uk03fpafrbim0sk"
+      image_id = var.image_id
     }
-  }
-
-  metadata = {
-    ssh-keys = "ubuntu:${file("~/.ssh/yc.pub")}"
   }
 
   network_interface {
     # Указан id подсети default-ru-central1-a
-    subnet_id = "e9bmco4kdh3g7iefnv0h"
+    subnet_id = var.subnet_id
     nat       = true
+  }
+
+  metadata = {
+    ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
 
   connection {
