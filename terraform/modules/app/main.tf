@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+}
+
 resource "yandex_compute_instance" "app" {
   name = "reddit-app"
 
@@ -20,7 +28,7 @@ resource "yandex_compute_instance" "app" {
   }
 
   network_interface {
-    subnet_id = yandex_vpc_subnet.app-subnet.id
+    subnet_id = var.subnet_id
     nat = true
   }
 
@@ -44,9 +52,4 @@ resource "yandex_compute_instance" "app" {
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-
-  depends_on = [
-    yandex_vpc_network.app-network,
-    yandex_compute_instance.db
-  ]
 }

@@ -1,3 +1,11 @@
+terraform {
+  required_providers {
+    yandex = {
+      source = "yandex-cloud/yandex"
+    }
+  }
+}
+
 resource "yandex_compute_instance" "db" {
   name = "reddit-db"
 
@@ -27,6 +35,4 @@ resource "yandex_compute_instance" "db" {
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }
-
-  depends_on = [yandex_vpc_network.app-network]
 }
