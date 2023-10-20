@@ -6,3 +6,5 @@ ansible dbserver -i inventory -m ping
 ansible dbserver -m command -a uptime
 
 ansible app -m ping
+
+ansible all -m ping -i inventory.yml
