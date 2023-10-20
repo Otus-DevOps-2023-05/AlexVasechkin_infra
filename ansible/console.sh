@@ -31,3 +31,5 @@ ansible app -m git -a \
 
 ansible app -m command -a \
  'git clone https://github.com/express42/reddit.git /home/ubuntu/reddit'
+
+ansible-playbook clone.yml
