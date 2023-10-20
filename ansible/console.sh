@@ -8,3 +8,20 @@ ansible dbserver -m command -a uptime
 ansible app -m ping
 
 ansible all -m ping -i inventory.yml
+
+ansible app -m command -a 'ruby -v'
+
+# не сработает
+ansible app -m command -a 'ruby -v; bundler -v'
+# Модуль command выполняет команды, не используя оболочку ( sh ,
+# bash ), поэтому в нем не работают перенаправления потоков и нет доступа
+# к некоторым переменным окружения.
+
+ansible app -m shell -a 'ruby -v; bundler -v'
+
+ansible db -m command -a 'systemctl status mongodb'
+ansible db -m shell -a 'systemctl status mongodb'
+
+ansible db -m systemd -a name=mongodb
+
+ansible db -m service -a name=mongodb
