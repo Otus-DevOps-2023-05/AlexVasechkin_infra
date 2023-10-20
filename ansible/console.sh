@@ -25,3 +25,9 @@ ansible db -m shell -a 'systemctl status mongodb'
 ansible db -m systemd -a name=mongodb
 
 ansible db -m service -a name=mongodb
+
+ansible app -m git -a \
+ 'repo=https://github.com/express42/reddit.git dest=/home/ubuntu/reddit'
+
+ansible app -m command -a \
+ 'git clone https://github.com/express42/reddit.git /home/ubuntu/reddit'
