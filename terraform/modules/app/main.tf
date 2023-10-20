@@ -40,10 +40,6 @@ resource "yandex_compute_instance" "app" {
     private_key = file(var.private_key_path)
   }
 
-  provisioner "remote-exec" {
-    script = "../files/install_python.sh"
-  }
-
   provisioner "file" {
     source      = "../files/puma.service"
     destination = "/tmp/puma.service"
