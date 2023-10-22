@@ -4,3 +4,9 @@ ansible-playbook reddit_app.yml --check --limit db
 
 # применим playbook
 ansible-playbook reddit_app.yml --limit db
+
+# пробный прогон всех тасок с тегом app-tag для хостов группы app
+ansible-playbook reddit_app.yml --check --limit app --tags app-tag
+
+# применение изменений
+ansible-playbook reddit_app.yml --limit app --tags app-tag
