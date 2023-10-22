@@ -10,3 +10,9 @@ ansible-playbook reddit_app.yml --check --limit app --tags app-tag
 
 # применение изменений
 ansible-playbook reddit_app.yml --limit app --tags app-tag
+
+# пробный прогон деплоя
+ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
+
+# выполнение деплоя
+ansible-playbook reddit_app.yml --limit app --tags deploy-tag
