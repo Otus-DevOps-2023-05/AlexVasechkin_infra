@@ -25,3 +25,6 @@ ansible-playbook reddit_app2.yml --tags app-tag
 
 ansible-playbook reddit_app2.yml --tags deploy-tag --check
 ansible-playbook reddit_app2.yml --tags deploy-tag
+
+ansible-playbook site.yml --check
+ansible-playbook site.yml
