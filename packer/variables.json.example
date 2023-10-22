@@ -1,5 +1,6 @@
 {
-    "service_account_key_file": "./service_account_key_file.json",
+    "service_account_key_file": "packer/service_account_key_file.json",
     "folder_id": "abc",
-    "source_image_family": "ubuntu-1604-lts"
+    "source_image_family": "ubuntu-1604-lts",
+    "ssh_user": "ubuntu"
 }
