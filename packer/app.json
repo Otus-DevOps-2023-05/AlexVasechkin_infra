@@ -14,11 +14,6 @@
     ],
     "provisioners": [
         {
-            "type": "shell",
-            "script": "scripts/install_python.sh",
-            "execute_command": "sudo {{.Path}}"
-        },
-        {
             "type": "ansible",
             "extra_arguments": ["-vv", "--ssh-extra-args", "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"],
             "playbook_file": "ansible/packer_app.yml",
