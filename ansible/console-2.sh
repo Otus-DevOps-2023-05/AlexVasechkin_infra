@@ -16,3 +16,9 @@ ansible-playbook reddit_app.yml --check --limit app --tags deploy-tag
 
 # выполнение деплоя
 ansible-playbook reddit_app.yml --limit app --tags deploy-tag
+
+ansible-playbook reddit_app2.yml --tags db-tag --check
+ansible-playbook reddit_app2.yml --tags db-tag
+
+ansible-playbook reddit_app2.yml --tags app-tag --check
+ansible-playbook reddit_app2.yml --tags app-tag
