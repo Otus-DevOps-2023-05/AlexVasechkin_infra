@@ -11,3 +11,8 @@
         dest: /etc/mongod.conf # <-- Путь на удаленном хосте
         mode: 0644 # <-- Права на файл, которые нужно установить
       tags: db-tag # <-- Список тэгов для задачи
+      notify: restart mongodb
+  handlers: # <-- Добавим блок handlers и задачу
+    - name: restart mongodb
+      become: true
+      service: name=mongodb state=restarted
