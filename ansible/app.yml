@@ -2,8 +2,6 @@
 - name: Configure hosts & deploy application
   hosts: app
   become: true
-  vars:
-   db_host: 51.250.77.193
 
   roles:
     - app
