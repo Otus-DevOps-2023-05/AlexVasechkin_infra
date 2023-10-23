@@ -1,0 +1,14 @@
+all:
+  hosts:
+    reddit-app:
+  children:
+    app:
+      hosts:
+        reddit-app:
+          ansible_host: 84.252.131.166
+      vars:
+         ansible_port: 22
+    db:
+      hosts:
+        reddit-db:
+          ansible_host: 158.160.127.12

@@ -28,3 +28,5 @@ ansible-playbook reddit_app2.yml --tags deploy-tag
 
 ansible-playbook site.yml --check
 ansible-playbook site.yml
+
+ansible-playbook -i environments/prod/inventory deploy.yml
