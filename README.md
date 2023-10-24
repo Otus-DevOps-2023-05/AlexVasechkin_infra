@@ -1,6 +1,7 @@
 # AlexVasechkin_infra
 AlexVasechkin Infra repository
-bastion_IP = 130.193.49.79
-someinternalhost_IP = 10.128.0.33
-testapp_IP = 51.250.81.154
-testapp_port = 9292
+команда ansible app -m command -a 'rm -rf ~/reddit'
+вернула Operation timed out
+потому что завершилась с ошибкой, так как модуль command не знает
+что такое ~/, а вот ansible app -m shell  -a 'rm -rf ~/reddit'
+выполнился успешно.

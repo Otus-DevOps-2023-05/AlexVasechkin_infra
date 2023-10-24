@@ -15,6 +15,11 @@
     "provisioners": [
         {
             "type": "shell",
+            "script": "scripts/install_python.sh",
+            "execute_command": "sudo {{.Path}}"
+        },
+        {
+            "type": "shell",
             "script": "scripts/install_mongodb.sh",
             "execute_command": "sudo {{.Path}}"
         }
