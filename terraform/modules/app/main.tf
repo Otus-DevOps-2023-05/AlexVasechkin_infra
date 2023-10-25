@@ -49,6 +49,10 @@ resource "yandex_compute_instance" "app" {
     script = "../files/deploy.sh"
   }
 
+  provisioner "remote-exec" {
+    script = "../files/open_port.sh"
+  }
+
   metadata = {
     ssh-keys = "ubuntu:${file(var.public_key_path)}"
   }

@@ -20,3 +20,6 @@
 
 - name: enable puma
   systemd: name=puma enabled=yes
+
+- name: install nginx
+  apt: "name=nginx state=present"
