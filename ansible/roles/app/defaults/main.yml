@@ -2,3 +2,4 @@
 # defaults file for app
 db_host: 51.250.67.7
 env: local
+deploy_user: appuser

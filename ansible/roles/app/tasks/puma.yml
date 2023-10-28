@@ -1,7 +1,7 @@
 ---
 - name: Add unit file for Puma
-  copy:
-    src: puma.service
+  template:
+    src: puma.service.j2
     dest: /etc/systemd/system/puma.service
   notify: reload puma
 
@@ -9,9 +9,9 @@
   become: false
   template:
     src: db_config.j2
-    dest: /home/ubuntu/db_config
-    owner: ubuntu
-    group: ubuntu
+    dest: /home/{{ deploy_user }}/db_config
+    owner: {{ deploy_user }}
+    group: {{ deploy_user }}
 
 - name: enable puma
   systemd: name=puma enabled=yes
