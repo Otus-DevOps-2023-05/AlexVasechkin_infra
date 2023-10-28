@@ -1,3 +1,4 @@
+---
 - name: Add python APT repository
   tags: install
   apt_repository:
