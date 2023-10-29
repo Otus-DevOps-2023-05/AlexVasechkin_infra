@@ -1,0 +1,20 @@
+---
+- name: Add python APT repository
+  tags: install
+  apt_repository:
+    repo: ppa:deadsnakes/ppa
+    state: present
+- name: Update apt-get repo and cache
+  tags: install
+  apt: update_cache=yes force_apt_get=yes cache_valid_time=3600
+- name: Install python
+  tags: install
+  apt: "name=python state=present"
+- name: Install MongoDB Server
+  tags: install
+  apt:
+    name: mongodb-server
+    state: present
+- name: Enable MongoDB
+  tags: install
+  service: name=mongodb state=started
