@@ -15,10 +15,10 @@
     "provisioners": [
         {
             "type": "ansible",
-            "extra_arguments": ["-vv", "--ssh-extra-args", "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa"],
+            "extra_arguments": ["-vv", "--ssh-extra-args", "-o HostKeyAlgorithms=+ssh-rsa -o PubkeyAcceptedAlgorithms=+ssh-rsa", "--tags", "db"],
             "playbook_file": "ansible/playbooks/packer_db.yml",
             "user": "{{user `ssh_user`}}",
-            "ansible_env_vars": ["ANSIBLE_CONFIG=ansible/ansible.cfg", "ANSIBLE_PIPELINING=true"]
+            "ansible_env_vars": ["ANSIBLE_CONFIG=ansible/ansible.cfg", "ANSIBLE_PIPELINING=true", "ANSIBLE_ROLES_PATH={{ pwd }}/ansible/roles"]
         }
     ]
 }
